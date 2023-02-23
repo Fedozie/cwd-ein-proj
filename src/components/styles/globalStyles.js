@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         scroll-behaviour: smooth;
-        transition: 0.8s all ease-in-out;
+        
     }
 
     *:focus{

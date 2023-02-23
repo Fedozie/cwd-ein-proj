@@ -10,6 +10,7 @@ const StyledButton = styled.button`
     box-shadow: 0px 5px 0px ${({theme}) => theme.colors.secLilac};
     color:${({theme}) => theme.colors.white};
     font-weight: 600;
+    transition: box-shadow .7s ease-in-out;
 
     &:hover, &:active{
         box-shadow: none;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import uuid from "react-uuid";
 import { Card } from "./UI/wrapper";
 
 
@@ -50,28 +51,28 @@ const Blogs = styled.div`
 `
 
 const MainBody = () => {
-    const blogs = [
+    const [blogs, setBlogs]= useState([
         {
-            title: "Who are we",
-            author: "Edozie Onye",
-            text: "lorem ipsumn nngmmrgnotmmgm  hgnmmtmf mmdnfnf"
+            title: "How to use Typescript with React",
+            author: "Edozie Onyeanusi",
+            post: "Werem ipsumn nngm and nfmn. Demmr gnotmmgm hgnmmtmf mmdnfnf..."
         },
         {
-            title: "Who are we",
-            author: "Edozie Onye",
-            text: "lorem ipsumn nngmmrgnotmmgm  hgnmmtmf mmdnfnf"
+            title: "Technical Writing for Developers",
+            author: "Jedidiah Anadi",
+            post: "Rarem ipsumn ernie, bvnf ngmmr. Viki nfmf hgnmmtmf mmdnfnf..."
         },
         {
-            title: "Who are we",
-            author: "Edozie Onye",
-            text: "lorem ipsumn nngmmrgnotmmgm  hgnmmtmf mmdnfnf"
+            title: "Navigating Docker",
+            author: "Charles Best",
+            post: "Anam ipsumn nngmmrg. Mad asiki nfmf hgnmmtmf mmdnfnf..."
         },
         {
-            title: "Who are we",
-            author: "Edozie Onye",
-            text: "lorem ipsumn nngmmrgnotmmgm  hgnmmtmf mmdnfnf"
+            title: "How to unlock your Mangekyō Sharingan",
+            author: "Sasuke Uchiha",
+            post: "Lorem ipm gbjjj sumn nngmmr. Viki nfmf hgnmmtmf mmdnfnf..."
         }
-    ]
+    ]);
 
     return (
         <StyledBody>
@@ -89,10 +90,12 @@ const MainBody = () => {
             <Blogs>
                 {
                     blogs.map((blog) => (
-                        <Card>
+                        <Card
+                            key = {uuid()}
+                        >
                             <h3>{blog.title}</h3>
                             <h6>by {blog.author}</h6>
-                            <p>{blog.text}</p>
+                            <p>{blog.post}</p>
                         </Card>
                     ))
                 }

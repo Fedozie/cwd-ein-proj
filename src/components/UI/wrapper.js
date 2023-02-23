@@ -22,6 +22,7 @@ const ContainerWrapper = styled(Wrapper)`
     margin: 4rem auto;
     display: block;
     padding: 1rem 1.5rem;
+    overflow: scroll;
 
     & > div{
         display: flex;
@@ -46,9 +47,11 @@ const CardWrapper = styled(Wrapper)`
     padding: 1rem;
     box-shadow: 5px 5px 0px ${({ theme }) => theme.colors.secLilac};
     cursor: pointer;
+    transition: all .1s ease-in-out;
 
     &:hover {
         box-shadow: 5px 5px 0px ${({ theme }) => theme.colors.priLilac};
+        color: ${({ theme }) => theme.colors.priLilac};
     }
 `;
 
@@ -89,16 +92,16 @@ export const Header = () => {
     )
 };
 
-export const Container = () => {
+export const Container = ({children}) => {
 
     return (
         <ContainerWrapper>
             <div>
                 <Title>Add New Blog Post</Title>
-                <Link to = "/">Go back to Home</Link>
+                <Link to = "/"> Go back to Home</Link>
+                
             </div>
-
-
+            {children}
         </ContainerWrapper>
     )
 }
