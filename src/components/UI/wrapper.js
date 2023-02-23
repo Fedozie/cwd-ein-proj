@@ -12,6 +12,10 @@ const Wrapper = styled.div`
     align-items: center;
     border-bottom: 1px solid ${({ theme }) => theme.colors.secLilac};
     margin: 0 auto;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.smMd}){
+        padding: 1rem;
+    }
 `;
 
 const ContainerWrapper = styled(Wrapper)`
@@ -36,6 +40,14 @@ const ContainerWrapper = styled(Wrapper)`
             cursor: pointer;
         }
     }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.md}){
+        width: 70vw;
+     }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.midMd}){
+       width: 80vw;
+    }
 `;
 
 const CardWrapper = styled(Wrapper)`
@@ -57,10 +69,18 @@ const CardWrapper = styled(Wrapper)`
 
 const Title = styled.h1`
     color: ${({ theme }) => theme.colors.secLilac};
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.midMd}){
+        font-size: 1.5rem;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.smMd}){
+        font-size: 1rem
+    }
 `;
 
 const Navigation = styled.nav`
-    width: 15%;
+    width: 17%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -69,6 +89,14 @@ const Navigation = styled.nav`
         color: ${({ theme }) => theme.colors.secLilac};
         text-decoration: none;
         font-size: 1.3rem;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.lg}){
+        width: 23%;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.midMd}){
+        width: 35%;
     }
 `;
 
@@ -85,7 +113,7 @@ export const Header = () => {
                         navigate("/new-post")
                     }}
                 >
-                    Add Post +
+                    Add Post
                 </Button>
             </Navigation>
         </Wrapper>

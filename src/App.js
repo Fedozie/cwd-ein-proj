@@ -12,6 +12,12 @@ function App() {
       priColor: "#FAF5F0",
       white: "#FFFFFF",
       tintPriLilac: "#e8e6f0"
+    },
+    breakpoints: {
+      smMd: '425px',
+      midMd: '600px',
+      md: '768px',
+      lg: '1024px'
     }
   }
 

@@ -11,7 +11,6 @@ const AppRoutes = () => {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/new-post" element ={<PostPage/>}/>
                 </Routes>
-
             </BrowserRouter>
         </>
     )

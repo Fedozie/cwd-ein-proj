@@ -9,11 +9,19 @@ const StyledBody = styled.section`
     min-height: 50vw;
     width: inherit;
     padding: 1.5rem 3.5rem 1rem 3.5rem;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.smMd}){
+        padding: 1.5rem;
+    }
 `;
 
 const WelcomeDiv = styled.div`
     width: 40%;
     margin-bottom: 2.5rem; 
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.midMd}){
+        width: 100%;
+    }
 `;
 
 const Heading = styled.h3`
@@ -41,11 +49,8 @@ const Blogs = styled.div`
        font-size: 1.2rem;
     }
 
-    & h5{
-        
-    }
-
-    & p{
+    @media (max-width: ${({ theme }) => theme.breakpoints.md}){
+        grid-template-columns: repeat(2, 1fr);
         
     }
 `
