@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import uuid from "react-uuid";
 import { Card } from "./UI/wrapper";
@@ -56,7 +56,7 @@ const Blogs = styled.div`
 `
 
 const MainBody = () => {
-    const [blogs, setBlogs]= useState([
+    const blogs = [
         {
             title: "How to use Typescript with React",
             author: "Edozie Onyeanusi",
@@ -77,7 +77,7 @@ const MainBody = () => {
             author: "Sasuke Uchiha",
             post: "Lorem ipm gbjjj sumn nngmmr. Viki nfmf hgnmmtmf mmdnfnf..."
         }
-    ]);
+    ]
 
     return (
         <StyledBody>
