@@ -1,6 +1,7 @@
 
-import React, {useState} from "react";
-import styled from 'styled-components'
+import React, {useState, useContext} from "react";
+import styled from 'styled-components';
+import DataContext from "../components/contexts/dataContext";
 import AddPost from "../components/addPost";
 import { Container } from "../components/UI/wrapper";
 
@@ -12,19 +13,21 @@ const StyledBody = styled.div`
 `;
 
 const PostPage = () => {
-    const [title, setTitle] = useState('');
-    const [author, setAuthor] = useState('');
-    const [post, setPost] = useState(''); 
+    // const [title, setTitle] = useState('');
+    // const [author, setAuthor] = useState('');
+    // const [post, setPost] = useState(''); 
 
-    const submitForm = (e) => {
-        e.preventDefault();
-        const blog = {title, author, post};
-        console.log(blog);
-        setTitle('')
-        setAuthor('')
-        setPost('')
-    }
+    // const submitForm = (e) => {
+    //     e.preventDefault();
+    //     const blog = {title, author, post};
+    //     console.log(blog);
+    //     setTitle('')
+    //     setAuthor('')
+    //     setPost('')
+    // }
 
+    const {title, post, author, setTitle, setAuthor, setPost, submitForm} = useContext(DataContext)
+    
     return (
         <StyledBody>
             <Container>

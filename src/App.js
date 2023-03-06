@@ -1,7 +1,8 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "./components/styles/globalStyles";
-import AppRoutes from "./routes/appRoutes"
+import AppRoutes from "./routes/appRoutes";
+import { DataProvider } from "./components/contexts/dataContext";
 
 
 function App() {
@@ -22,11 +23,12 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <AppRoutes/>
-    </ThemeProvider>
-   
+    <DataProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <AppRoutes />
+      </ThemeProvider>
+    </DataProvider>
   );
 }
 
