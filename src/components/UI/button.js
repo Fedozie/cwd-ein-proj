@@ -1,6 +1,18 @@
 
 import styled from 'styled-components';
 
+const Button = ({ children, onClick }) => {
+    return (
+        <StyledButton
+            onClick={onClick}
+        >
+            {children}
+        </StyledButton>
+    )
+}
+
+export default Button;
+
 const StyledButton = styled.button`
     width: auto;
     height: auto;
@@ -21,18 +33,4 @@ const StyledButton = styled.button`
     @media (max-width: ${({ theme }) => theme.breakpoints.md}){
         padding: 0.5rem;
     }
-
-    
 `;
-
-const Button = ({ children, onClick }) => {
-    return (
-        <StyledButton
-            onClick={onClick}
-        >
-            {children}
-        </StyledButton>
-    )
-}
-
-export default Button;

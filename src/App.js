@@ -23,12 +23,13 @@ function App() {
   }
 
   return (
-    <DataProvider>
-      <ThemeProvider theme={theme}>
-        <GlobalStyles />
+
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <DataProvider>
         <AppRoutes />
-      </ThemeProvider>
-    </DataProvider>
+      </DataProvider>
+    </ThemeProvider>
   );
 }
 

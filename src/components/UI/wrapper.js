@@ -2,6 +2,48 @@ import { Link, useNavigate } from "react-router-dom"
 import styled from 'styled-components';
 import Button from './button';
 
+export const Header = () => {
+    const navigate = useNavigate();
+
+    return (
+        <Wrapper>
+            <Title>Code with Dverybest Blog</Title>
+            <Navigation>
+                <Link to="/">Home</Link>
+                <Button
+                    onClick={() => {
+                        navigate("/new-post")
+                    }}
+                >
+                    Add Post
+                </Button>
+            </Navigation>
+        </Wrapper>
+    )
+};
+
+export const Container = ({children}) => {
+
+    return (
+        <ContainerWrapper>
+            <div>
+                <Title>Add New Blog Post</Title>
+                <Link to = "/"> Go back to Home</Link>
+            </div>
+            {children}
+        </ContainerWrapper>
+    )
+}
+
+export const Card = ({ children }) => {
+
+    return (
+        <CardWrapper>
+            {children}
+        </CardWrapper>
+    )
+};
+
 const Wrapper = styled.div`
     background-color: ${({ theme }) => theme.colors.priColor};
     width: 100vw;
@@ -99,46 +141,3 @@ const Navigation = styled.nav`
         width: 35%;
     }
 `;
-
-export const Header = () => {
-    const navigate = useNavigate();
-
-    return (
-        <Wrapper>
-            <Title>Code with Dverybest Blog</Title>
-            <Navigation>
-                <Link to="/">Home</Link>
-                <Button
-                    onClick={() => {
-                        navigate("/new-post")
-                    }}
-                >
-                    Add Post
-                </Button>
-            </Navigation>
-        </Wrapper>
-    )
-};
-
-export const Container = ({children}) => {
-
-    return (
-        <ContainerWrapper>
-            <div>
-                <Title>Add New Blog Post</Title>
-                <Link to = "/"> Go back to Home</Link>
-                
-            </div>
-            {children}
-        </ContainerWrapper>
-    )
-}
-
-export const Card = ({ children }) => {
-
-    return (
-        <CardWrapper>
-            {children}
-        </CardWrapper>
-    )
-}

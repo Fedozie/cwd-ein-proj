@@ -18,5 +18,9 @@ const GlobalStyles = createGlobalStyle`
         outline: none;
     }
 
+    textarea{
+        font-family: inherit;
+    }
+
 `
 export default GlobalStyles;

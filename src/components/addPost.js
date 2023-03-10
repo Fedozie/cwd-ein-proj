@@ -1,57 +1,27 @@
 
-import React from "react";
+import React, {useState, useContext} from "react";
 import styled from "styled-components";
+import DataContext from "./contexts/dataContext";
 import Button from "./UI/button";
 
+const AddPost = () => {
+    const formData = useContext(DataContext);
 
-const StyledForm = styled.form`
-    margin-top: 2rem;
-`;
+    const [title, setTitle] = useState('');
+    const [author, setAuthor] = useState('');
+    const [post, setPost] = useState(''); 
 
-const InputWrapper = styled.div`
-    margin: 2.5rem 0;
-    width: auto;
-
-    & label{
-        display: block;
-        color: ${({ theme }) => theme.colors.secLilac};
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-bottom: .3rem;
+    const submitForm = (e) => {
+        e.preventDefault();
+        const blog = {title, author, post};
+        formData.push(blog);
+        setTitle('');
+        setAuthor('');
+        setPost('');
     }
-
-    & input, & textarea{
-        display: block;
-        width: 100%;
-        font-size: 1rem;
-        font-weight: 600;
-        padding: .5rem 1rem;
-        border: 1.5px solid ${({ theme }) => theme.colors.secLilac};
-        border-radius: 3px;
-        color: ${({ theme }) => theme.colors.secLilac};
-    }
-`;
-
-const BtnWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-
-const AddPost = (
-    {
-        onSubmit,
-        title,
-        setTitle,
-        author,
-        setAuthor,
-        post, 
-        setPost
-    }) => {
 
     return (
-        <StyledForm onSubmit = {onSubmit}>
+        <StyledForm onSubmit = {submitForm}>
             <InputWrapper>
                 <label htmlFor="title">Title of Blog Post</label>
                 <input
@@ -92,3 +62,37 @@ const AddPost = (
 }
 
 export default AddPost;
+
+const StyledForm = styled.form`
+    margin-top: 2rem;
+`;
+
+const InputWrapper = styled.div`
+    margin: 2.5rem 0;
+    width: auto;
+
+    & label{
+        display: block;
+        color: ${({ theme }) => theme.colors.secLilac};
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: .3rem;
+    }
+
+    & input, & textarea{
+        display: block;
+        width: 100%;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: .5rem 1rem;
+        border: 1.5px solid ${({ theme }) => theme.colors.secLilac};
+        border-radius: 3px;
+        color: ${({ theme }) => theme.colors.secLilac};
+    }
+`;
+
+const BtnWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
