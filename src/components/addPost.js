@@ -1,11 +1,12 @@
 
-import React, {useState, useContext, useNavigate} from "react";
+import React, {useState, useContext} from "react";
+import {useNavigate} from "react-router-dom"
 import styled from "styled-components";
 import DataContext from "./contexts/dataContext";
 import Button from "./UI/button";
 
 const AddPost = () => {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const formData = useContext(DataContext);
 
     const [title, setTitle] = useState('');
@@ -19,7 +20,7 @@ const AddPost = () => {
         setTitle('');
         setAuthor('');
         setPost('');
-        // navigate("/");
+        navigate("/");
     }
 
     return (
