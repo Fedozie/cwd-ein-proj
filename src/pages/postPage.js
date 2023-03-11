@@ -18,11 +18,11 @@ const PostPage = () => {
     );
 }
 
-export default PostPage;
-
 const StyledBody = styled.div`
     width: 100vw;
     height: 100vh;
     overflow: hidden;
     background-color:  ${({ theme }) => theme.colors.tintPriLilac};
 `;
+
+export default PostPage;

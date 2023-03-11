@@ -55,6 +55,10 @@ const Wrapper = styled.div`
     border-bottom: 1px solid ${({ theme }) => theme.colors.secLilac};
     margin: 0 auto;
 
+    @media only screen and (min-width: ${({theme}) => theme.breakpoints.mbl}) and (max-width: ${({theme}) => theme.breakpoints.tbt}){
+       padding: 1rem 2rem;
+    }
+
     @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
         padding: .5rem;
     }
@@ -83,17 +87,17 @@ const ContainerWrapper = styled(Wrapper)`
         }
     }
 
-    @media (max-width: ${({theme}) => theme.breakpoints.tbt}){
+    @media only screen and (max-width: ${({theme}) => theme.breakpoints.tbt}){
         width: 75vw;
     }
 
-    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
+    @media only screen and (max-width: ${({theme}) => theme.breakpoints.mbl}){
         width: 85vw;
         height: auto;
     }
 
-    @media (max-width: 320px){
-        width: 95vw;
+    @media only screen and (max-width: 320px){
+        width: 90vw;
         height: auto;
         margin: 2rem auto;
     }
@@ -134,6 +138,11 @@ const Navigation = styled.nav`
         color: ${({ theme }) => theme.colors.secLilac};
         text-decoration: none;
         font-size: 1.3rem;
+    }
+
+    @media only screen and (min-width: ${({theme}) => theme.breakpoints.mbl}) and (max-width: ${({theme}) => theme.breakpoints.tbt}){
+        width: 25%;
+
     }
 
     @media (max-width: ${({theme}) => theme.breakpoints.mbl}){

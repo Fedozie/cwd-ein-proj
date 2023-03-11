@@ -31,7 +31,11 @@ const StyledButton = styled.button`
         box-shadow: none;
     }
 
-    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
+    @media only screen and (min-width: ${({theme}) => theme.breakpoints.mbl}) and (max-width: ${({theme}) => theme.breakpoints.tbt}){
+        
+    }
+
+    @media only screen and (max-width: ${({theme}) => theme.breakpoints.mbl}){
         
     }
 `;
