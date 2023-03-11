@@ -55,8 +55,8 @@ const Wrapper = styled.div`
     border-bottom: 1px solid ${({ theme }) => theme.colors.secLilac};
     margin: 0 auto;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.smMd}){
-        padding: 1rem;
+    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
+        padding: .5rem;
     }
 `;
 
@@ -83,12 +83,19 @@ const ContainerWrapper = styled(Wrapper)`
         }
     }
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.md}){
-        width: 70vw;
-     }
+    @media (max-width: ${({theme}) => theme.breakpoints.tbt}){
+        width: 75vw;
+    }
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.midMd}){
-       width: 80vw;
+    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
+        width: 85vw;
+        height: auto;
+    }
+
+    @media (max-width: 320px){
+        width: 95vw;
+        height: auto;
+        margin: 2rem auto;
     }
 `;
 
@@ -112,12 +119,8 @@ const CardWrapper = styled(Wrapper)`
 const Title = styled.h1`
     color: ${({ theme }) => theme.colors.secLilac};
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.midMd}){
-        font-size: 1.5rem;
-    }
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.smMd}){
-        font-size: 1rem
+    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
+        font-size: 1.3rem;
     }
 `;
 
@@ -133,11 +136,8 @@ const Navigation = styled.nav`
         font-size: 1.3rem;
     }
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.lg}){
-        width: 23%;
-    }
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.midMd}){
-        width: 35%;
+    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
+        width: 40%;
+        justify-content: space-around;
     }
 `;

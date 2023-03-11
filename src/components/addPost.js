@@ -1,10 +1,11 @@
 
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useNavigate} from "react";
 import styled from "styled-components";
 import DataContext from "./contexts/dataContext";
 import Button from "./UI/button";
 
 const AddPost = () => {
+    // const navigate = useNavigate();
     const formData = useContext(DataContext);
 
     const [title, setTitle] = useState('');
@@ -18,6 +19,7 @@ const AddPost = () => {
         setTitle('');
         setAuthor('');
         setPost('');
+        // navigate("/");
     }
 
     return (
@@ -49,6 +51,7 @@ const AddPost = () => {
                     onChange={(e) => { setPost(e.target.value) }}
                     id="post"
                     required
+                    rows = "7"
                 ></textarea>
             </InputWrapper>
             <BtnWrapper>
@@ -61,7 +64,6 @@ const AddPost = () => {
     );
 }
 
-export default AddPost;
 
 const StyledForm = styled.form`
     margin-top: 2rem;
@@ -89,6 +91,10 @@ const InputWrapper = styled.div`
         border-radius: 3px;
         color: ${({ theme }) => theme.colors.secLilac};
     }
+
+    & textarea{
+        resize: none;
+    }
 `;
 
 const BtnWrapper = styled.div`
@@ -96,3 +102,5 @@ const BtnWrapper = styled.div`
     justify-content: center;
     align-items: center;
 `;
+
+export default AddPost;

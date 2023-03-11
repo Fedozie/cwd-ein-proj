@@ -13,8 +13,8 @@ const HomePage = () => {
     )
 }
 
-export default HomePage;
-
 const Home = styled.div`
     width: 100vw;
 `;
+
+export default HomePage;

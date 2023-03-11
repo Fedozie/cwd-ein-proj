@@ -8,17 +8,17 @@ import { DataProvider } from "./components/contexts/dataContext";
 function App() {
   const theme = {
     colors: {
-      priLilac: "#572bdf",
+      priLilac: "#572BDF",
       secLilac: "#180266",
       priColor: "#FAF5F0",
       white: "#FFFFFF",
-      tintPriLilac: "#e8e6f0"
+      tintPriLilac: "#E8E6F0"
     },
     breakpoints: {
-      smMd: '425px',
-      midMd: '600px',
-      md: '768px',
-      lg: '1024px'
+      mbl: '425px',
+      tbt: '768px',
+      dsk: '1024px',
+      lgDsk: '1440px'
     }
   }
 

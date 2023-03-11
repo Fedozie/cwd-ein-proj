@@ -37,24 +37,19 @@ const MainBody = () => {
     )
 }
 
-export default MainBody;
 
 const StyledBody = styled.section`
     background-color: ${({ theme }) => theme.colors.priColor};
-    min-height: 50vw;
+    min-height: 90vh;
     width: inherit;
     padding: 1.5rem 3.5rem 1rem 3.5rem;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.smMd}){
-        padding: 1.5rem;
-    }
 `;
 
 const WelcomeDiv = styled.div`
     width: 40%;
-    margin-bottom: 2.5rem; 
+    margin-bottom: 2.5rem;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.midMd}){
+    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
         width: 100%;
     }
 `;
@@ -72,7 +67,7 @@ const Blogs = styled.div`
     max-width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: auto;
     grid-gap: 1rem;
     color: ${({ theme }) => theme.colors.secLilac};
 
@@ -84,8 +79,9 @@ const Blogs = styled.div`
        font-size: 1.2rem;
     }
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.md}){
+    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
         grid-template-columns: repeat(2, 1fr);
-        
     }
 `
+
+export default MainBody;
