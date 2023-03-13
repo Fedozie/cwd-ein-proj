@@ -43,11 +43,19 @@ const StyledBody = styled.section`
     min-height: 90vh;
     width: inherit;
     padding: 1.5rem 3.5rem 1rem 3.5rem;
+
+    @media only screen and (min-width: ${({theme}) => theme.breakpoints.mbl}) and (max-width: ${({theme}) => theme.breakpoints.tbt}){
+     
+    }
 `;
 
 const WelcomeDiv = styled.div`
-    width: 40%;
+    width: 45%;
     margin-bottom: 2.5rem;
+
+    @media (max-width: ${({theme}) => theme.breakpoints.tbt}){
+        width: 70%;
+    }
 
     @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
         width: 100%;
@@ -79,8 +87,12 @@ const Blogs = styled.div`
        font-size: 1.2rem;
     }
 
-    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
+    @media only screen and (max-width: 620px){
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
+        grid-template-columns: repeat(1, 1fr);
     }
 `
 

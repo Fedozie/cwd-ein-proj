@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import styled from 'styled-components';
-import Button from './button';
+import {AddButton} from './button';
 
 export const Header = () => {
     const navigate = useNavigate();
@@ -10,13 +10,13 @@ export const Header = () => {
             <Title>Code with Dverybest Blog</Title>
             <Navigation>
                 <Link to="/">Home</Link>
-                <Button
+                <AddButton
                     onClick={() => {
                         navigate("/new-post")
                     }}
                 >
                     Add Post
-                </Button>
+                </AddButton>
             </Navigation>
         </Wrapper>
     )
@@ -89,6 +89,7 @@ const ContainerWrapper = styled(Wrapper)`
 
     @media only screen and (max-width: ${({theme}) => theme.breakpoints.tbt}){
         width: 75vw;
+
     }
 
     @media only screen and (max-width: ${({theme}) => theme.breakpoints.mbl}){
@@ -123,13 +124,17 @@ const CardWrapper = styled(Wrapper)`
 const Title = styled.h1`
     color: ${({ theme }) => theme.colors.secLilac};
 
+    @media only screen and (min-width: ${({theme}) => theme.breakpoints.mbl}) and (max-width: ${({theme}) => theme.breakpoints.tbt}){
+       font-size: 1.3rem;
+    }
+
     @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
         font-size: 1.3rem;
     }
 `;
 
 const Navigation = styled.nav`
-    width: 17%;
+    width: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -141,12 +146,13 @@ const Navigation = styled.nav`
     }
 
     @media only screen and (min-width: ${({theme}) => theme.breakpoints.mbl}) and (max-width: ${({theme}) => theme.breakpoints.tbt}){
-        width: 25%;
-
+        & > a{
+            font-size: 1rem;
+        }
     }
 
     @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
-        width: 40%;
         justify-content: space-around;
     }
 `;
+

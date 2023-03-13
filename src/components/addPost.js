@@ -3,7 +3,7 @@ import React, {useState, useContext} from "react";
 import {useNavigate} from "react-router-dom"
 import styled from "styled-components";
 import DataContext from "./contexts/dataContext";
-import Button from "./UI/button";
+import {Button} from "./UI/button";
 
 const AddPost = () => {
     const navigate = useNavigate();

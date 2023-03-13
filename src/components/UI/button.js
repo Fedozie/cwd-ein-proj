@@ -1,7 +1,7 @@
 
 import styled from 'styled-components';
 
-const Button = ({ children, onClick }) => {
+export const Button = ({ children, onClick}) => {
     return (
         <StyledButton
             onClick={onClick}
@@ -11,7 +11,16 @@ const Button = ({ children, onClick }) => {
     )
 }
 
-export default Button;
+export const AddButton = ({ children, onClick}) => {
+    return (
+        <StyledAddButton
+            onClick={onClick}
+        >
+            {children}
+        </StyledAddButton>
+    )
+}
+
 
 const StyledButton = styled.button`
     width: auto;
@@ -26,6 +35,7 @@ const StyledButton = styled.button`
     font-weight: 600;
     transition: box-shadow .7s ease-in-out;
     font-size: .9rem;
+   
 
     &:hover, &:active{
         box-shadow: none;
@@ -38,4 +48,8 @@ const StyledButton = styled.button`
     @media only screen and (max-width: ${({theme}) => theme.breakpoints.mbl}){
         
     }
+`;
+
+const StyledAddButton = styled(StyledButton)`
+    margin: 1rem;
 `;
