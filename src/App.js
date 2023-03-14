@@ -12,7 +12,8 @@ function App() {
       secLilac: "#180266",
       priColor: "#FAF5F0",
       white: "#FFFFFF",
-      tintPriLilac: "#E8E6F0"
+      tintPriLilac: "#E8E6F0",
+      dltColor: "#ED5651"
     },
     breakpoints: {
       mbl: '425px',

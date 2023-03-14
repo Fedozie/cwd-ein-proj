@@ -3,6 +3,7 @@ import DataContext from "./contexts/dataContext";
 import styled from "styled-components";
 import uuid from "react-uuid";
 import { Card } from "./UI/wrapper";
+import { DeleteButton, Button } from "./UI/button";
 
 const MainBody = () => {
     const blogs = useContext(DataContext)
@@ -29,6 +30,9 @@ const MainBody = () => {
                             <h3>{blog.title}</h3>
                             <h6>by {blog.author}</h6>
                             <p>{blog.post.slice(0, 90)}...</p>
+                            <div className="CTA">
+                                <DeleteButton>Remove</DeleteButton>
+                            </div>
                         </Card>
                     ))
                 }
@@ -85,6 +89,12 @@ const Blogs = styled.div`
 
     & h3{
        font-size: 1.2rem;
+    }
+
+    .CTA{
+        margin-top: 1rem;
+        display: flex;
+        justify-content: flex-end;
     }
 
     @media only screen and (max-width: 620px){

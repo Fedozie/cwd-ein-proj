@@ -21,10 +21,20 @@ export const AddButton = ({ children, onClick}) => {
     )
 }
 
+export const DeleteButton = ({children, onClick}) => {
+    return(
+        <StyledDltButton
+            onClick = {onClick}
+        >
+            {children}
+        </StyledDltButton>
+    )
+}
+
 
 const StyledButton = styled.button`
-    width: auto;
-    height: auto;
+    width: max-content;
+    height: inherit;
     background-color: ${({ theme }) => theme.colors.priLilac};
     border: 2px solid ${({ theme }) => theme.colors.secLilac};
     padding: 0.75rem 1rem;
@@ -52,4 +62,10 @@ const StyledButton = styled.button`
 
 const StyledAddButton = styled(StyledButton)`
     margin: 1rem;
+`;
+
+const StyledDltButton = styled(StyledButton)`
+    background-color: ${({theme}) => theme.colors.dltColor};
+    padding: .5rem;
+    margin-right: .5rem;
 `;
