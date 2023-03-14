@@ -1,5 +1,5 @@
 
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect} from "react";
 import {useNavigate} from "react-router-dom"
 import styled from "styled-components";
 import DataContext from "./contexts/dataContext";
@@ -13,15 +13,20 @@ const AddPost = () => {
     const [author, setAuthor] = useState('');
     const [post, setPost] = useState(''); 
 
+    const blog = {title, author, post};
+
     const submitForm = (e) => {
         e.preventDefault();
-        const blog = {title, author, post};
         formData.push(blog);
         setTitle('');
         setAuthor('');
         setPost('');
         navigate("/");
     }
+
+    useEffect(() => {
+        localStorage.setItem('data', JSON.stringify(blog))
+    }, [blog])
 
     return (
         <StyledForm onSubmit = {submitForm}>
@@ -60,7 +65,6 @@ const AddPost = () => {
                     Submit Blog Post
                 </Button>
             </BtnWrapper>
-
         </StyledForm>
     );
 }
