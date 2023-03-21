@@ -1,12 +1,18 @@
 import React, {useContext} from "react";
+import {useNavigate} from "react-router-dom"
 import DataContext from "./contexts/dataContext";
 import styled from "styled-components";
-import uuid from "react-uuid";
+import {v4 as uuidv4} from 'uuid'
 import { Card } from "./UI/wrapper";
-import { DeleteButton, Button } from "./UI/button";
+import { DeleteButton} from "./UI/button";
 
 const MainBody = () => {
-    const blogs = useContext(DataContext)
+    const navigate = useNavigate();
+    const blogs = useContext(DataContext);
+
+    const removeBlog = () => {
+       
+    }
 
     return (
         <StyledBody>
@@ -25,13 +31,21 @@ const MainBody = () => {
                 {
                     blogs.map((blog) => (
                         <Card
-                            key = {uuid()}
+                            key = {uuidv4()}
+                            onClick = {() => {
+                                navigate(`/edit-post-${uuidv4()}`)
+                                console.log("clicked")
+                            }}
                         >
                             <h3>{blog.title}</h3>
                             <h6>by {blog.author}</h6>
                             <p>{blog.post.slice(0, 90)}...</p>
                             <div className="CTA">
-                                <DeleteButton>Remove</DeleteButton>
+                                <DeleteButton
+                                    onClick={removeBlog}
+                                >
+                                    Remove
+                                </DeleteButton>
                             </div>
                         </Card>
                     ))

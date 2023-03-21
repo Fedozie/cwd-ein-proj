@@ -1,6 +1,6 @@
 
 import React, {useState, useContext, useEffect} from "react";
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
 import styled from "styled-components";
 import DataContext from "./contexts/dataContext";
 import {Button} from "./UI/button";
@@ -26,7 +26,7 @@ const AddPost = () => {
 
     useEffect(() => {
         localStorage.setItem('data', JSON.stringify(blog))
-    }, [blog])
+    })
 
     return (
         <StyledForm onSubmit = {submitForm}>
