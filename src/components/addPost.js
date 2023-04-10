@@ -7,7 +7,8 @@ import {Button} from "./UI/button";
 
 const AddPost = () => {
     const navigate = useNavigate();
-    const formData = useContext(DataContext);
+    const {blogs} = useContext(DataContext);
+   
 
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
@@ -17,7 +18,7 @@ const AddPost = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
-        formData.push(blog);
+        blogs.push(blog);
         setTitle('');
         setAuthor('');
         setPost('');
@@ -25,7 +26,7 @@ const AddPost = () => {
     }
 
     useEffect(() => {
-        localStorage.setItem('data', JSON.stringify(blog))
+        sessionStorage.setItem('data', JSON.stringify(blog))
     })
 
     return (

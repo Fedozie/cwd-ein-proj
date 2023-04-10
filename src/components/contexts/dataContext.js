@@ -1,10 +1,9 @@
-import {createContext} from "react";
+import { createContext, useState } from "react";
 
 const DataContext = createContext({});
 
-export const DataProvider = ({children}) => {
-
-    const state = [
+export const DataProvider = ({ children }) => {
+    const [blogs, setBlogs] = useState([
         {
             title: "How to use Typescript with React",
             author: "Edozie Onyeanusi",
@@ -25,10 +24,10 @@ export const DataProvider = ({children}) => {
             author: "Sasuke Uchiha",
             post: "Magna eget est lorem ipsum dolor. Ut tristique et egestas quis ipsum suspendisse ultrices gravida. In cursus turpis massa tincidunt dui ut. Tempus imperdiet nulla malesuada pellentesque elit. Tempus egestas sed sed risus pretium quam vulputate dignissim suspendisse. Ac turpis egestas sed tempus urna. Nunc sed id semper risus."
         }
-    ]
+    ]);
 
-    return(
-        <DataContext.Provider value = {state}>
+    return (
+        <DataContext.Provider value={{blogs}}>
             {children}
         </DataContext.Provider>
     )

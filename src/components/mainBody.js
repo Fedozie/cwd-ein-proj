@@ -8,10 +8,10 @@ import { DeleteButton} from "./UI/button";
 
 const MainBody = () => {
     const navigate = useNavigate();
-    const blogs = useContext(DataContext);
+    const {blogs} = useContext(DataContext);
 
     const removeBlog = () => {
-       
+       console.log("remove")
     }
 
     return (
@@ -32,14 +32,12 @@ const MainBody = () => {
                     blogs.map((blog) => (
                         <Card
                             key = {uuidv4()}
-                            onClick = {() => {
-                                navigate(`/edit-post-${uuidv4()}`)
-                                console.log("clicked")
-                            }}
                         >
                             <h3>{blog.title}</h3>
                             <h6>by {blog.author}</h6>
-                            <p>{blog.post.slice(0, 90)}...</p>
+                            <p onClick = {() => {
+                                navigate(`/read-post-${uuidv4()}`)
+                            }}>{blog.post.slice(0, 90)}...</p>
                             <div className="CTA">
                                 <DeleteButton
                                     onClick={removeBlog}
