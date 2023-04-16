@@ -1,6 +1,7 @@
 
 import React, {useState, useContext, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
+import {v4 as uuidv4} from 'uuid';
 import styled from "styled-components";
 import DataContext from "./contexts/dataContext";
 import {Button} from "./UI/button";
@@ -12,12 +13,12 @@ const AddPost = () => {
 
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
-    const [post, setPost] = useState(''); 
-
-    const blog = {title, author, post};
+    const [post, setPost] = useState('');
 
     const submitForm = (e) => {
         e.preventDefault();
+        const blogID = uuidv4();
+        const blog = {title, author, post, blogID};
         blogs.push(blog);
         setTitle('');
         setAuthor('');
@@ -25,9 +26,9 @@ const AddPost = () => {
         navigate("/");
     }
 
-    useEffect(() => {
-        sessionStorage.setItem('data', JSON.stringify(blog))
-    })
+    // useEffect(() => {
+    //     sessionStorage.setItem('data', JSON.stringify(blog))
+    // })
 
     return (
         <StyledForm onSubmit = {submitForm}>

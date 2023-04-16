@@ -36,7 +36,7 @@ const MainBody = () => {
                             <h3>{blog.title}</h3>
                             <h6>by {blog.author}</h6>
                             <p onClick = {() => {
-                                navigate(`/read-post-${uuidv4()}`)
+                                navigate(`/read-post/${blog.blogID}`)
                             }}>{blog.post.slice(0, 90)}...</p>
                             <div className="CTA">
                                 <DeleteButton
