@@ -139,11 +139,7 @@ const Navigation = styled.nav`
     justify-content: space-between;
     align-items: center;
 
-    & > a {
-        color: ${({ theme }) => theme.colors.secLilac};
-        text-decoration: none;
-        font-size: 1.3rem;
-    }
+    
 
     @media only screen and (min-width: ${({theme}) => theme.breakpoints.mbl}) and (max-width: ${({theme}) => theme.breakpoints.tbt}){
         & > a{
