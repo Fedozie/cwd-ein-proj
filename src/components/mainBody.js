@@ -1,17 +1,17 @@
-import React, {useContext} from "react";
-import {useNavigate} from "react-router-dom"
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom"
 import DataContext from "./contexts/dataContext";
 import styled from "styled-components";
-import {v4 as uuidv4} from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import { Card } from "./UI/wrapper";
-import { DeleteButton} from "./UI/button";
+import { DeleteButton } from "./UI/button";
 
 const MainBody = () => {
     const navigate = useNavigate();
-    const {blogs} = useContext(DataContext);
+    const { blogs } = useContext(DataContext);
 
     const removeBlog = () => {
-       console.log("remove")
+        console.log("remove")
     }
 
     return (
@@ -31,13 +31,14 @@ const MainBody = () => {
                 {
                     blogs.map((blog) => (
                         <Card
-                            key = {uuidv4()}
+                            key={uuidv4()}
+                            onClick={() => {
+                                navigate(`/read-post/${blog.blogID}`)
+                            }}
                         >
                             <h3>{blog.title}</h3>
                             <h6>by {blog.author}</h6>
-                            <p onClick = {() => {
-                                navigate(`/read-post/${blog.blogID}`)
-                            }}>{blog.post.slice(0, 90)}...</p>
+                            <p >{blog.post.slice(0, 90)}...</p>
                             <div className="CTA">
                                 <DeleteButton
                                     onClick={removeBlog}
@@ -60,7 +61,7 @@ const StyledBody = styled.section`
     width: inherit;
     padding: 1.5rem 3.5rem 1rem 3.5rem;
 
-    @media only screen and (min-width: ${({theme}) => theme.breakpoints.mbl}) and (max-width: ${({theme}) => theme.breakpoints.tbt}){
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mbl}) and (max-width: ${({ theme }) => theme.breakpoints.tbt}){
      
     }
 `;
@@ -69,11 +70,11 @@ const WelcomeDiv = styled.div`
     width: 45%;
     margin-bottom: 2.5rem;
 
-    @media (max-width: ${({theme}) => theme.breakpoints.tbt}){
+    @media (max-width: ${({ theme }) => theme.breakpoints.tbt}){
         width: 70%;
     }
 
-    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
+    @media (max-width: ${({ theme }) => theme.breakpoints.mbl}){
         width: 100%;
     }
 `;
@@ -100,7 +101,7 @@ const Blogs = styled.div`
     }
 
     & h3{
-       font-size: 1.2rem;
+        font-size: 1.2rem;
     }
 
     .CTA{
@@ -113,7 +114,7 @@ const Blogs = styled.div`
         grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
+    @media (max-width: ${({ theme }) => theme.breakpoints.mbl}){
         grid-template-columns: repeat(1, 1fr);
     }
 `

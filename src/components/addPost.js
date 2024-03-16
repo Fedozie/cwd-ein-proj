@@ -1,5 +1,5 @@
 
-import React, {useState, useContext, useEffect} from "react";
+import React, {useState, useContext} from "react";
 import {useNavigate} from "react-router-dom";
 import {v4 as uuidv4} from 'uuid';
 import styled from "styled-components";
@@ -8,7 +8,7 @@ import {Button} from "./UI/button";
 
 const AddPost = () => {
     const navigate = useNavigate();
-    const {blogs} = useContext(DataContext);
+    const {blogs, setBlogs} = useContext(DataContext);
    
 
     const [title, setTitle] = useState('');
@@ -19,16 +19,14 @@ const AddPost = () => {
         e.preventDefault();
         const blogID = uuidv4();
         const blog = {title, author, post, blogID};
-        blogs.push(blog);
+        const updatedBlogs = [...blogs, blog];
+        setBlogs(updatedBlogs)
+        // localStorage.setItem('blogs', JSON.stringify(updatedBlogs))
         setTitle('');
         setAuthor('');
         setPost('');
         navigate("/");
     }
-
-    // useEffect(() => {
-    //     sessionStorage.setItem('data', JSON.stringify(blog))
-    // })
 
     return (
         <StyledForm onSubmit = {submitForm}>
@@ -53,7 +51,7 @@ const AddPost = () => {
                 />
             </InputWrapper>
             <InputWrapper>
-                <label htmlFor="">Blog Post</label>
+                <label htmlFor="post">Blog Post</label>
                 <textarea
                     value={post}
                     onChange={(e) => { setPost(e.target.value) }}

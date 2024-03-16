@@ -35,10 +35,10 @@ export const Container = ({children}) => {
     )
 }
 
-export const Card = ({children}) => {
+export const Card = ({children, onClick}) => {
 
     return (
-        <CardWrapper>
+        <CardWrapper onClick={onClick}>
             {children}
         </CardWrapper>
     )
