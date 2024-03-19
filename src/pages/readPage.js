@@ -10,7 +10,7 @@ const ReadPage = () => {
     const blog = blogs.find((blog) => {
         return (blog.blogID === urlID)
     })
-    const { id } = useParams();
+    // const { id } = useParams();
 
     return (
         <StyledBody>

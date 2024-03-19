@@ -1,6 +1,5 @@
 
-import React, {useState, useContext, useEffect} from "react";
-import { useLocalStorage } from "./hooks/uselocalStorage";
+import React, {useState, useContext } from "react";
 import {useNavigate} from "react-router-dom";
 import {v4 as uuidv4} from 'uuid';
 import styled from "styled-components";
