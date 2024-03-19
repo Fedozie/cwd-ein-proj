@@ -7,7 +7,7 @@ export const Header = () => {
 
     return (
         <Wrapper>
-            <Title>Code with Dverybest Blog</Title>
+            <Title>Scribbles</Title>
             <Navigation>
                 <Link to="/">Home</Link>
                 <AddButton
@@ -15,7 +15,7 @@ export const Header = () => {
                         navigate("/new-post")
                     }}
                 >
-                    Add Post
+                    Scribble
                 </AddButton>
             </Navigation>
         </Wrapper>
@@ -27,7 +27,7 @@ export const Container = ({children}) => {
     return (
         <ContainerWrapper>
             <div>
-                <Title>Add New Blog Post</Title>
+                <Title>Add New Scribble</Title>
                 <Link to = "/"> Go back to Home</Link>
             </div>
             {children}
@@ -89,7 +89,6 @@ const ContainerWrapper = styled(Wrapper)`
 
     @media only screen and (max-width: ${({theme}) => theme.breakpoints.tbt}){
         width: 75vw;
-
     }
 
     @media only screen and (max-width: ${({theme}) => theme.breakpoints.mbl}){

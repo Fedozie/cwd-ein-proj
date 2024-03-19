@@ -13,7 +13,8 @@ function App() {
       priColor: "#FAF5F0",
       white: "#FFFFFF",
       tintPriLilac: "#E8E6F0",
-      dltColor: "#ED5651"
+      dltColor: "#ED5651",
+      editColor: "#2A70DE"
     },
     breakpoints: {
       mbl: '425px',

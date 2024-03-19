@@ -1,47 +1,54 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import DataContext from "./contexts/dataContext";
 import styled from "styled-components";
 import { v4 as uuidv4 } from 'uuid'
 import { Card } from "./UI/wrapper";
-import { DeleteButton } from "./UI/button";
+import { DeleteButton, EditButton } from "./UI/button";
+import { useLocalStorage } from "./hooks/uselocalStorage"
 
 const MainBody = () => {
     const navigate = useNavigate();
     const { blogs } = useContext(DataContext);
 
-    const removeBlog = () => {
-        console.log("remove")
+    const { removeItem } = useLocalStorage('blogs');
+
+    const viewNote = (event, blog) => {
+        
+        if(event.detail === 2){
+            navigate(`/read-post/${blog.blogID}`)
+        }
     }
 
     return (
         <StyledBody>
             <WelcomeDiv>
                 <Heading>
-                    Welcome to our blog!
+                    Welcome to Scribbles!
                 </Heading>
                 <Paragraph>
-                    At CwD Blog, we aim to provide you with the best articles and tutorials that would answer your questions and help you grow in your career.
+                    Scribbles is a simple web app which makes it easy for you to scribble your thoughts and take notes in your web browser, whilst keeping the notes even when you close the tabs or the browser window.
                 </Paragraph>
             </WelcomeDiv>
             <Heading>
-                Blog Posts
+                Scribbles
             </Heading>
             <Blogs>
                 {
                     blogs.map((blog) => (
                         <Card
                             key={uuidv4()}
-                            onClick={() => {
-                                navigate(`/read-post/${blog.blogID}`)
-                            }}
+                            onClick={(event) => viewNote(event, blog)}
                         >
                             <h3>{blog.title}</h3>
                             <h6>by {blog.author}</h6>
                             <p >{blog.post.slice(0, 90)}...</p>
                             <div className="CTA">
+                                <EditButton onClick={() => removeItem}>
+                                    Edit
+                                </EditButton>
                                 <DeleteButton
-                                    onClick={removeBlog}
+                                    onClick={() => removeItem()}
                                 >
                                     Remove
                                 </DeleteButton>

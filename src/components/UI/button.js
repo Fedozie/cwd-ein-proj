@@ -1,7 +1,7 @@
 
 import styled from 'styled-components';
 
-export const Button = ({ children, onClick}) => {
+export const Button = ({ children, onClick }) => {
     return (
         <StyledButton
             onClick={onClick}
@@ -11,7 +11,7 @@ export const Button = ({ children, onClick}) => {
     )
 }
 
-export const AddButton = ({ children, onClick}) => {
+export const AddButton = ({ children, onClick }) => {
     return (
         <StyledAddButton
             onClick={onClick}
@@ -21,13 +21,23 @@ export const AddButton = ({ children, onClick}) => {
     )
 }
 
-export const DeleteButton = ({children, onClick}) => {
-    return(
+export const DeleteButton = ({ children, onClick }) => {
+    return (
         <StyledDltButton
-            onClick = {onClick}
+            onClick={onClick}
         >
             {children}
         </StyledDltButton>
+    )
+}
+
+export const EditButton = ({ children, onClick }) => {
+    return (
+        <StyledEditButton
+            onClick={onClick}
+        >
+            {children}
+        </StyledEditButton>
     )
 }
 
@@ -51,11 +61,11 @@ const StyledButton = styled.button`
         box-shadow: none;
     }
 
-    @media only screen and (min-width: ${({theme}) => theme.breakpoints.mbl}) and (max-width: ${({theme}) => theme.breakpoints.tbt}){
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mbl}) and (max-width: ${({ theme }) => theme.breakpoints.tbt}){
         
     }
 
-    @media only screen and (max-width: ${({theme}) => theme.breakpoints.mbl}){
+    @media only screen and (max-width: ${({ theme }) => theme.breakpoints.mbl}){
         
     }
 `;
@@ -65,7 +75,14 @@ const StyledAddButton = styled(StyledButton)`
 `;
 
 const StyledDltButton = styled(StyledButton)`
-    background-color: ${({theme}) => theme.colors.dltColor};
+    background-color: ${({ theme }) => theme.colors.dltColor};
     padding: .5rem;
-    margin-right: .5rem;
+    width: 5rem;
+`;
+
+const StyledEditButton = styled(StyledButton)`
+    background-color: ${({theme}) => theme.colors.editColor};
+    padding: .5rem;
+    margin-right: 1rem;
+    width: 5rem;
 `;

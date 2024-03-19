@@ -1,5 +1,6 @@
 
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect} from "react";
+import { useLocalStorage } from "./hooks/uselocalStorage";
 import {useNavigate} from "react-router-dom";
 import {v4 as uuidv4} from 'uuid';
 import styled from "styled-components";
@@ -8,12 +9,13 @@ import {Button} from "./UI/button";
 
 const AddPost = () => {
     const navigate = useNavigate();
-    const {blogs, setBlogs} = useContext(DataContext);
-   
+    const {blogs, setBlogs} = useContext(DataContext);   
 
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [post, setPost] = useState('');
+
+    
 
     const submitForm = (e) => {
         e.preventDefault();
@@ -21,17 +23,19 @@ const AddPost = () => {
         const blog = {title, author, post, blogID};
         const updatedBlogs = [...blogs, blog];
         setBlogs(updatedBlogs)
-        // localStorage.setItem('blogs', JSON.stringify(updatedBlogs))
+
         setTitle('');
         setAuthor('');
         setPost('');
         navigate("/");
     }
 
+    
+
     return (
         <StyledForm onSubmit = {submitForm}>
             <InputWrapper>
-                <label htmlFor="title">Title of Blog Post</label>
+                <label htmlFor="title">Scribble Title</label>
                 <input
                     type="text"
                     value={title}
@@ -41,7 +45,7 @@ const AddPost = () => {
                 />
             </InputWrapper>
             <InputWrapper>
-                <label htmlFor="author">Author of Blog Post</label>
+                <label htmlFor="author">Scribble Author</label>
                 <input
                     type="text"
                     value={author}
@@ -51,7 +55,7 @@ const AddPost = () => {
                 />
             </InputWrapper>
             <InputWrapper>
-                <label htmlFor="post">Blog Post</label>
+                <label htmlFor="post">Scribble</label>
                 <textarea
                     value={post}
                     onChange={(e) => { setPost(e.target.value) }}
@@ -62,7 +66,7 @@ const AddPost = () => {
             </InputWrapper>
             <BtnWrapper>
                 <Button>
-                    Submit Blog Post
+                    Done Scribbling?
                 </Button>
             </BtnWrapper>
         </StyledForm>
