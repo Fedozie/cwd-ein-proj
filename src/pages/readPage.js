@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import {useParams, useLocation, Link} from "react-router-dom";
+import { useLocation, Link} from "react-router-dom";
 import DataContext from "../components/contexts/dataContext";
 import styled from "styled-components";
 
