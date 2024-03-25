@@ -49,7 +49,7 @@ const MainBody = () => {
                                     Edit
                                 </EditButton>
                                 <DeleteButton
-                                    onClick={() => removeScribble()}
+                                    onClick={() => removeScribble("scribbles", scribble.scribbleID)}
                                 >
                                     Remove
                                 </DeleteButton>
