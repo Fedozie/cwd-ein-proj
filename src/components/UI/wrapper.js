@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import styled from 'styled-components';
-import {AddButton} from './button';
+import { AddButton } from './button';
 
 export const Header = () => {
     const navigate = useNavigate();
@@ -22,20 +22,20 @@ export const Header = () => {
     )
 };
 
-export const Container = ({children}) => {
+export const Container = ({ children }) => {
 
     return (
         <ContainerWrapper>
             <div>
                 <Title>Add New Scribble</Title>
-                <Link to = "/"> Go back to Home</Link>
+                <Link to="/"> Go back to Home</Link>
             </div>
             {children}
         </ContainerWrapper>
     )
 }
 
-export const Card = ({children, onClick}) => {
+export const Card = ({ children, onClick }) => {
 
     return (
         <CardWrapper onClick={onClick}>
@@ -55,11 +55,11 @@ const Wrapper = styled.div`
     border-bottom: 1px solid ${({ theme }) => theme.colors.secLilac};
     margin: 0 auto;
 
-    @media only screen and (min-width: ${({theme}) => theme.breakpoints.mbl}) and (max-width: ${({theme}) => theme.breakpoints.tbt}){
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mbl}) and (max-width: ${({ theme }) => theme.breakpoints.tbt}){
        padding: 1rem 2rem;
     }
 
-    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
+    @media (max-width: ${({ theme }) => theme.breakpoints.mbl}){
         padding: .5rem;
     }
 `;
@@ -87,11 +87,11 @@ const ContainerWrapper = styled(Wrapper)`
         }
     }
 
-    @media only screen and (max-width: ${({theme}) => theme.breakpoints.tbt}){
+    @media only screen and (max-width: ${({ theme }) => theme.breakpoints.tbt}){
         width: 75vw;
     }
 
-    @media only screen and (max-width: ${({theme}) => theme.breakpoints.mbl}){
+    @media only screen and (max-width: ${({ theme }) => theme.breakpoints.mbl}){
         width: 85vw;
         height: auto;
     }
@@ -123,11 +123,11 @@ const CardWrapper = styled(Wrapper)`
 const Title = styled.h1`
     color: ${({ theme }) => theme.colors.secLilac};
 
-    @media only screen and (min-width: ${({theme}) => theme.breakpoints.mbl}) and (max-width: ${({theme}) => theme.breakpoints.tbt}){
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mbl}) and (max-width: ${({ theme }) => theme.breakpoints.tbt}){
        font-size: 1.3rem;
     }
 
-    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
+    @media (max-width: ${({ theme }) => theme.breakpoints.mbl}){
         font-size: 1.3rem;
     }
 `;
@@ -138,15 +138,13 @@ const Navigation = styled.nav`
     justify-content: space-between;
     align-items: center;
 
-    
-
-    @media only screen and (min-width: ${({theme}) => theme.breakpoints.mbl}) and (max-width: ${({theme}) => theme.breakpoints.tbt}){
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mbl}) and (max-width: ${({ theme }) => theme.breakpoints.tbt}){
         & > a{
             font-size: 1rem;
         }
     }
 
-    @media (max-width: ${({theme}) => theme.breakpoints.mbl}){
+    @media (max-width: ${({ theme }) => theme.breakpoints.mbl}){
         justify-content: space-around;
     }
 `;

@@ -6,9 +6,9 @@ import styled from "styled-components";
 const ReadPage = () => {
     const { pathname } = useLocation();
     const urlID = pathname.split("/")[2];
-    const { blogs } = useContext(DataContext);
-    const blog = blogs.find((blog) => {
-        return (blog.blogID === urlID)
+    const { scribbles } = useContext(DataContext);
+    const scribble = scribbles.find((scribble) => {
+        return (scribble.scribbleID === urlID)
     })
     // const { id } = useParams();
 
@@ -17,15 +17,14 @@ const ReadPage = () => {
             <StyledContainer>
                 <div>
                     <StyledHeading>
-                        <h2>{blog.title}</h2>
-                        <h5>by {blog.author}</h5>
+                        <h2>{scribble.title}</h2>
+                        <h5>by {scribble.author}</h5>
                     </StyledHeading>
                     <Navigation>
                         <Link to = "/">Go back Home</Link>
                     </Navigation>
                 </div>
-
-                <p>{blog.post}</p>
+                <p>{scribble.post}</p>
             </StyledContainer>
         </StyledBody>
     )

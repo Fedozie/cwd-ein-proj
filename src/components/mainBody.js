@@ -9,14 +9,14 @@ import { useLocalStorage } from "./hooks/uselocalStorage"
 
 const MainBody = () => {
     const navigate = useNavigate();
-    const { blogs } = useContext(DataContext);
+    const { scribbles } = useContext(DataContext);
 
-    const { removeItem } = useLocalStorage('blogs');
+    const { removeItem } = useLocalStorage('scribbles');
 
-    const viewNote = (event, blog) => {
+    const viewScribble = (event, scribble) => {
         
         if(event.detail === 2){
-            navigate(`/read-post/${blog.blogID}`)
+            navigate(`/read-post/${scribble.scribbleID}`)
         }
     }
 
@@ -29,20 +29,21 @@ const MainBody = () => {
                 <Paragraph>
                     Scribbles is a simple web app which makes it easy for you to scribble your thoughts and take notes in your web browser, whilst keeping the notes even when you close the tabs or the browser window.
                 </Paragraph>
+                <Paragraph marginTop>P.S. Double click on the scribble to read it in full.</Paragraph>
             </WelcomeDiv>
             <Heading>
                 Scribbles
             </Heading>
-            <Blogs>
+            <Scribbles>
                 {
-                    blogs.map((blog) => (
+                    scribbles.map((scribble) => (
                         <Card
                             key={uuidv4()}
-                            onClick={(event) => viewNote(event, blog)}
+                            onClick={(event) => viewScribble(event, scribble)}
                         >
-                            <h3>{blog.title}</h3>
-                            <h6>by {blog.author}</h6>
-                            <p >{blog.post.slice(0, 90)}...</p>
+                            <h3>{scribble.title}</h3>
+                            <h6>by {scribble.author}</h6>
+                            <p >{scribble.post.slice(0, 90)}...</p>
                             <div className="CTA">
                                 <EditButton onClick={() => removeItem}>
                                     Edit
@@ -56,7 +57,7 @@ const MainBody = () => {
                         </Card>
                     ))
                 }
-            </Blogs>
+            </Scribbles>
         </StyledBody>
     )
 }
@@ -93,9 +94,10 @@ const Heading = styled.h3`
 
 const Paragraph = styled.p`
     color: ${({ theme }) => theme.colors.secLilac};
+    margin-top: ${props => (props.marginTop ? "1rem" : "0")};
 `;
 
-const Blogs = styled.div`
+const Scribbles = styled.div`
     max-width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
