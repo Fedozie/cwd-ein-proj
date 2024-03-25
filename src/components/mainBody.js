@@ -11,7 +11,7 @@ const MainBody = () => {
     const navigate = useNavigate();
     const { scribbles } = useContext(DataContext);
 
-    const { removeItem } = useLocalStorage('scribbles');
+    const { removeScribble, editScribble } = useLocalStorage('scribbles');
 
     const viewScribble = (event, scribble) => {
         
@@ -45,11 +45,11 @@ const MainBody = () => {
                             <h6>by {scribble.author}</h6>
                             <p >{scribble.post.slice(0, 90)}...</p>
                             <div className="CTA">
-                                <EditButton onClick={() => removeItem}>
+                                <EditButton onClick={() => editScribble()}>
                                     Edit
                                 </EditButton>
                                 <DeleteButton
-                                    onClick={() => removeItem()}
+                                    onClick={() => removeScribble()}
                                 >
                                     Remove
                                 </DeleteButton>

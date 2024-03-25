@@ -25,11 +25,11 @@ export const DataProvider = ({ children }) => {
         }
     ]);
 
-    const { setItem } = useLocalStorage('scribbles');
+    const { addScribble } = useLocalStorage('scribbles');
 
     useEffect(() => {
-        setItem(scribbles)
-    }, [scribbles, setItem])
+        addScribble(scribbles)
+    }, [scribbles, addScribble])
 
     const contextValue = { scribbles, setScribbles }
 

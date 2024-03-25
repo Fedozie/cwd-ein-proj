@@ -55,7 +55,6 @@ const StyledButton = styled.button`
     font-weight: 600;
     transition: box-shadow .7s ease-in-out;
     font-size: .9rem;
-   
 
     &:hover, &:active{
         box-shadow: none;

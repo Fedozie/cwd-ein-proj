@@ -2,22 +2,22 @@
 
 
 export const useLocalStorage = (key) => {
-  
 
-
-  const setItem = (value) => {
+  const addScribble = (value) => {
     try{
       localStorage.setItem(key, JSON.stringify(value))
     }catch(error){
-      console.log(error)
+      throw new Error("Scribble not added to storage")
     }
   }
 
-  const removeItem = () => {
-    
-    console.log("remove me")
+  const removeScribble = () => {
+    console.log("Remove Scribble")
   }
 
+  const editScribble = () => {
+    console.log("Edit Scribble")
+  }
 
-  return {setItem, removeItem}
+  return {addScribble, removeScribble, editScribble}
 }

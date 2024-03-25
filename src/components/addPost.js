@@ -8,7 +8,7 @@ import {Button} from "./UI/button";
 
 const AddPost = () => {
     const navigate = useNavigate();
-    const {blogs, setBlogs} = useContext(DataContext);   
+    const {scribbles, setScribbles} = useContext(DataContext);   
 
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
@@ -18,18 +18,16 @@ const AddPost = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
-        const blogID = uuidv4();
-        const blog = {title, author, post, blogID};
-        const updatedBlogs = [...blogs, blog];
-        setBlogs(updatedBlogs)
+        const scribbleID = uuidv4();
+        const scribble = {title, author, post, scribbleID};
+        const updatedScribbles = [...scribbles, scribble];
+        setScribbles(updatedScribbles)
 
         setTitle('');
         setAuthor('');
         setPost('');
         navigate("/");
     }
-
-    
 
     return (
         <StyledForm onSubmit = {submitForm}>
