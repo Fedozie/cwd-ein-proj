@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useLocation, Link} from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import DataContext from "../components/contexts/dataContext";
 import styled from "styled-components";
 
@@ -21,7 +21,7 @@ const ReadPage = () => {
                         <h5>by {scribble.author}</h5>
                     </StyledHeading>
                     <Navigation>
-                        <Link to = "/">Go back Home</Link>
+                        <Link to="/">Go back Home</Link>
                     </Navigation>
                 </div>
                 <p>{scribble.post}</p>
@@ -40,7 +40,7 @@ const StyledBody = styled.div`
 const StyledContainer = styled.div`
     width: 70vw;
     height: 85vh;
-    background-color: ${({theme}) => theme.colors.priColor};
+    background-color: ${({ theme }) => theme.colors.priColor};
     border: 1px solid ${({ theme }) => theme.colors.secLilac};
     border-radius: 10px;
     margin: 4rem auto;
@@ -57,9 +57,11 @@ const StyledContainer = styled.div`
 
     & > p{
         color: ${({ theme }) => theme.colors.secLilac};
+        text-align: justify;
     }
 `
 const StyledHeading = styled.div`
+    width: 75%;
 
     & > h2{
         color: ${({ theme }) => theme.colors.secLilac};

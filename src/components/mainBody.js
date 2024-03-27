@@ -20,6 +20,16 @@ const MainBody = () => {
         }
     }
 
+    const truncateTitle = (title, maxLength) => {
+        if(title.length > maxLength){
+            const truncatedTitle = `${title.slice(0, maxLength)}...`
+            return truncatedTitle
+        }else{
+            return title
+        }
+    }
+    
+
     return (
         <StyledBody>
             <WelcomeDiv>
@@ -41,7 +51,7 @@ const MainBody = () => {
                             key={uuidv4()}
                             onClick={(event) => viewScribble(event, scribble)}
                         >
-                            <h3>{scribble.title}</h3>
+                            <h3>{truncateTitle(scribble.title, 40)}</h3>
                             <h6>by {scribble.author}</h6>
                             <p >{scribble.post.slice(0, 90)}...</p>
                             <div className="CTA">
