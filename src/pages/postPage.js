@@ -1,7 +1,7 @@
 
 import React from "react";
 import styled from 'styled-components';
-import AddPost from "../components/addPost";
+import AddScribble from "../components/addScribble";
 import { Container } from "../components/UI/wrapper";
 
 
@@ -11,8 +11,8 @@ const PostPage = () => {
     
     return (
         <StyledBody>
-            <Container>
-                <AddPost />
+            <Container title = "Add New Scribble">
+                <AddScribble />
             </Container>
         </StyledBody>
     );

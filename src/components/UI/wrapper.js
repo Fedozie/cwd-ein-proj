@@ -12,7 +12,7 @@ export const Header = () => {
                 <Link to="/">Home</Link>
                 <AddButton
                     onClick={() => {
-                        navigate("/new-post")
+                        navigate("/new-scribble")
                     }}
                 >
                     Scribble
@@ -22,12 +22,12 @@ export const Header = () => {
     )
 };
 
-export const Container = ({ children }) => {
+export const Container = ({ children, title }) => {
 
     return (
         <ContainerWrapper>
             <div>
-                <Title>Add New Scribble</Title>
+                <Title>{title}</Title>
                 <Link to="/"> Go back to Home</Link>
             </div>
             {children}
@@ -104,7 +104,7 @@ const ContainerWrapper = styled(Wrapper)`
 `;
 
 const CardWrapper = styled(Wrapper)`
-    width: auto;
+    width: 100%;
     height: auto;
     border: 1px solid ${({ theme }) => theme.colors.secLilac};
     margin: 0;

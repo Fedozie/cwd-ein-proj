@@ -6,15 +6,13 @@ import styled from "styled-components";
 import DataContext from "./contexts/dataContext";
 import {Button} from "./UI/button";
 
-const AddPost = () => {
+const AddScribble = () => {
     const navigate = useNavigate();
     const {scribbles, setScribbles} = useContext(DataContext);   
 
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [post, setPost] = useState('');
-
-    
 
     const submitForm = (e) => {
         e.preventDefault();
@@ -109,4 +107,4 @@ const BtnWrapper = styled.div`
     align-items: center;
 `;
 
-export default AddPost;
+export default AddScribble;

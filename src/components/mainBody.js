@@ -16,7 +16,7 @@ const MainBody = () => {
     const viewScribble = (event, scribble) => {
         
         if(event.detail === 2){
-            navigate(`/read-post/${scribble.scribbleID}`)
+            navigate(`/read-scribble/${scribble.scribbleID}`)
         }
     }
 
@@ -27,6 +27,11 @@ const MainBody = () => {
         }else{
             return title
         }
+    };
+
+    const makeChanges = (scribble) => {
+        navigate(`/edit-scribble/${scribble.scribbleID}`)
+        editScribble()
     }
     
 
@@ -51,11 +56,11 @@ const MainBody = () => {
                             key={uuidv4()}
                             onClick={(event) => viewScribble(event, scribble)}
                         >
-                            <h3>{truncateTitle(scribble.title, 40)}</h3>
+                            <h3>{truncateTitle(scribble.title, 30)}</h3>
                             <h6>by {scribble.author}</h6>
                             <p >{scribble.post.slice(0, 90)}...</p>
                             <div className="CTA">
-                                <EditButton onClick={() => editScribble()}>
+                                <EditButton onClick={() => makeChanges(scribble)}>
                                     Edit
                                 </EditButton>
                                 <DeleteButton
@@ -76,7 +81,7 @@ const MainBody = () => {
 const StyledBody = styled.section`
     background-color: ${({ theme }) => theme.colors.priColor};
     min-height: 90vh;
-    width: inherit;
+    width: 100%;
     padding: 1.5rem 3.5rem 1rem 3.5rem;
 
     @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mbl}) and (max-width: ${({ theme }) => theme.breakpoints.tbt}){
@@ -108,7 +113,7 @@ const Paragraph = styled.p`
 `;
 
 const Scribbles = styled.div`
-    max-width: 100%;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
@@ -129,11 +134,11 @@ const Scribbles = styled.div`
         justify-content: flex-end;
     }
 
-    @media only screen and (max-width: 620px){
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mbl} ) and (max-width: ${({ theme }) => theme.breakpoints.tbt}){
         grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mbl}){
+    @media (max-width: 424px){
         grid-template-columns: repeat(1, 1fr);
     }
 `
