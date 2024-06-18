@@ -11,29 +11,26 @@ const MainBody = () => {
     const navigate = useNavigate();
     const { scribbles } = useContext(DataContext);
 
-    const { removeScribble, editScribble } = useLocalStorage('scribbles');
+    const { removeScribble } = useLocalStorage('scribbles', scribbles);
 
     const viewScribble = (event, scribble) => {
-        
-        if(event.detail === 2){
+        if (event.detail === 2) {
             navigate(`/read-scribble/${scribble.scribbleID}`)
         }
     }
 
     const truncateTitle = (title, maxLength) => {
-        if(title.length > maxLength){
+        if (title.length > maxLength) {
             const truncatedTitle = `${title.slice(0, maxLength)}...`
             return truncatedTitle
-        }else{
+        } else {
             return title
         }
     };
 
     const makeChanges = (scribble) => {
         navigate(`/edit-scribble/${scribble.scribbleID}`)
-        editScribble()
     }
-    
 
     return (
         <StyledBody>

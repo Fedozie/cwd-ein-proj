@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "./UI/button";
 
-
 const EditScribble = ({ pathID, scribbles }) => {
   const { setScribbles } = useContext(DataContext);
   const navigate = useNavigate();
@@ -75,33 +74,33 @@ const InputWrapper = styled.div`
     width: auto;
 
     & label{
-        display: block;
-        color: ${({ theme }) => theme.colors.secLilac};
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-bottom: .3rem;
+      display: block;
+      color: ${({ theme }) => theme.colors.secLilac};
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: .3rem;
     }
 
     & input, & textarea{
-        display: block;
-        width: 100%;
-        font-size: 1rem;
-        font-weight: 600;
-        padding: .5rem 1rem;
-        border: 1.5px solid ${({ theme }) => theme.colors.secLilac};
-        border-radius: 3px;
-        color: ${({ theme }) => theme.colors.secLilac};
+      display: block;
+      width: 100%;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: .5rem 1rem;
+      border: 1.5px solid ${({ theme }) => theme.colors.secLilac};
+      border-radius: 3px;
+      color: ${({ theme }) => theme.colors.secLilac};
     }
 
     & textarea{
-        resize: none;
+      resize: none;
     }
 `;
 
 const BtnWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default EditScribble;

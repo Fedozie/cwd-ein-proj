@@ -15,7 +15,7 @@ export const Header = () => {
                         navigate("/new-scribble")
                     }}
                 >
-                    Scribble
+                    Create Scribble
                 </AddButton>
             </Navigation>
         </Wrapper>
