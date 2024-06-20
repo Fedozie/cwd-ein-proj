@@ -41,7 +41,6 @@ const MainBody = () => {
                 <Paragraph>
                     Scribbles is a simple web app which makes it easy for you to scribble your thoughts and take notes in your web browser, whilst keeping the notes even when you close the tabs or the browser window.
                 </Paragraph>
-                <Paragraph marginTop>P.S. Double click on the scribble to read it in full.</Paragraph>
             </WelcomeDiv>
             <Heading>
                 Scribbles

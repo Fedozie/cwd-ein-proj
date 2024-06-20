@@ -39,6 +39,7 @@ export const Card = ({ children, onClick }) => {
 
     return (
         <CardWrapper onClick={onClick}>
+            <span>Double click on the scribble to read it in full.</span>
             {children}
         </CardWrapper>
     )
@@ -56,7 +57,7 @@ const Wrapper = styled.div`
     margin: 0 auto;
 
     @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mbl}) and (max-width: ${({ theme }) => theme.breakpoints.tbt}){
-       padding: 1rem 2rem;
+        padding: 1rem 2rem;
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mbl}){
@@ -113,10 +114,49 @@ const CardWrapper = styled(Wrapper)`
     box-shadow: 5px 5px 0px ${({ theme }) => theme.colors.secLilac};
     cursor: pointer;
     transition: all .1s ease-in-out;
+    position: relative;
 
     &:hover {
         box-shadow: 5px 5px 0px ${({ theme }) => theme.colors.priLilac};
         color: ${({ theme }) => theme.colors.priLilac};
+    }
+
+    & > span{
+        display: none;
+        background: none repeat scroll 0 0 ${({theme}) => theme.colors.white};
+        border: 3px solid ${({theme}) => theme.colors.secLilac};
+        color: ${({theme}) => theme.colors.secLilac};;
+        height: 60px;
+        width: 80%;
+        margin: 0 auto;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: .5rem;
+        cursor: default;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    & > span::after{
+        content: '';
+        width: 10px;
+        height: 10px;
+        background: ${({theme}) => theme.colors.white};
+        border-bottom: 3px solid ${({theme}) => theme.colors.secLilac};
+        border-right: 3px solid ${({theme}) => theme.colors.secLilac};
+        position: absolute;
+        bottom: -7px;
+        left: 50%;
+        margin-left: -5px;
+        transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
+    &:hover > span{
+        display: block;
     }
 `;
 
@@ -124,7 +164,7 @@ const Title = styled.h1`
     color: ${({ theme }) => theme.colors.secLilac};
 
     @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mbl}) and (max-width: ${({ theme }) => theme.breakpoints.tbt}){
-       font-size: 1.3rem;
+        font-size: 1.3rem;
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mbl}){
@@ -137,6 +177,7 @@ const Navigation = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: 600;
 
     @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mbl}) and (max-width: ${({ theme }) => theme.breakpoints.tbt}){
         & > a{
