@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import DataContext from "./contexts/dataContext";
 import styled from "styled-components";
@@ -9,14 +9,13 @@ import { useLocalStorage } from "./hooks/uselocalStorage"
 
 const MainBody = () => {
     const navigate = useNavigate();
+    const [longPressTimeout, setLongPressTimeout] = useState(null);
     const { scribbles } = useContext(DataContext);
 
     const { removeScribble } = useLocalStorage('scribbles', scribbles);
 
-    const viewScribble = (event, scribble) => {
-        if (event.detail === 2) {
-            navigate(`/read-scribble/${scribble.scribbleID}`)
-        }
+    const viewScribble = (scribble) => {
+        navigate(`/read-scribble/${scribble.scribbleID}`)
     }
 
     const truncateTitle = (title, maxLength) => {
@@ -30,6 +29,24 @@ const MainBody = () => {
 
     const makeChanges = (scribble) => {
         navigate(`/edit-scribble/${scribble.scribbleID}`)
+    }
+
+    const handleClick = (event, scribble) => {
+        if(event.detail === 2){
+            viewScribble(scribble)
+        }
+    }
+
+    const handleTouchStart = (scribble) => {
+        const timeout = setTimeout(() => viewScribble(scribble), 800)
+        setLongPressTimeout(timeout)
+    }
+
+    const handleTouchEnd = () => {
+        if(longPressTimeout){
+            clearTimeout(longPressTimeout);
+            setLongPressTimeout(null);
+        }
     }
 
     return (
@@ -50,7 +67,9 @@ const MainBody = () => {
                     scribbles.map((scribble) => (
                         <Card
                             key={uuidv4()}
-                            onClick={(event) => viewScribble(event, scribble)}
+                            onClick={(event) => handleClick(event, scribble)}
+                            onTouchStart = {() => handleTouchStart(scribble)}
+                            onTouchEnd = {handleTouchEnd}
                         >
                             <h3>{truncateTitle(scribble.title, 30)}</h3>
                             <h6>by {scribble.author}</h6>
