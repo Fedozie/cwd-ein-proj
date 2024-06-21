@@ -1,9 +1,12 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import styled from 'styled-components';
 import { AddButton } from './button';
 
 export const Header = () => {
     const navigate = useNavigate();
+
+    
 
     return (
         <Wrapper>
@@ -36,10 +39,13 @@ export const Container = ({ children, title }) => {
 }
 
 export const Card = ({ children, onClick }) => {
+    const forMobileScreens = useMediaQuery({
+        query: '(max-width: 1024px)'
+    })
 
     return (
         <CardWrapper onClick={onClick}>
-            <span>Double click on the scribble to read it in full.</span>
+            <span>{forMobileScreens ? 'Long press the scribble to read it in full' : 'Double click on the scribble to read it in full.' }</span>
             {children}
         </CardWrapper>
     )
