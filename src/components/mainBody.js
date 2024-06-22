@@ -2,10 +2,10 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import DataContext from "./contexts/dataContext";
 import styled from "styled-components";
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid';
 import { Card } from "./UI/wrapper";
 import { DeleteButton, EditButton } from "./UI/button";
-import { useLocalStorage } from "./hooks/uselocalStorage"
+import { useLocalStorage } from "./hooks/uselocalStorage";
 
 const MainBody = () => {
     const navigate = useNavigate();

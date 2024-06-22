@@ -1,25 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import styled from 'styled-components';
-import { AddButton } from './button';
 
 export const Header = () => {
-    const navigate = useNavigate();
-
-    
 
     return (
         <Wrapper>
             <Title>Scribbles</Title>
             <Navigation>
-                <Link to="/">Home</Link>
-                <AddButton
-                    onClick={() => {
-                        navigate("/new-scribble")
-                    }}
-                >
-                    Create Scribble
-                </AddButton>
+                <StyledLink to = "/" >Home</StyledLink>
+                <StyledLink to = "/new-scribble" >Create Scribble +</StyledLink>
             </Navigation>
         </Wrapper>
     )
@@ -45,6 +35,7 @@ export const Card = ({ children, onClick }) => {
 
     return (
         <CardWrapper onClick={onClick}>
+            {/* {forMobileScreens ? <span>Double click on the scribble to read it in full.</span> : null} */}
             <span>{forMobileScreens ? 'Long press the scribble to read it in full' : 'Double click on the scribble to read it in full.' }</span>
             {children}
         </CardWrapper>
@@ -143,6 +134,7 @@ const CardWrapper = styled(Wrapper)`
         cursor: default;
         font-weight: 600;
         text-align: center;
+        z-index: 50;
     }
 
     & > span::after{
@@ -159,6 +151,7 @@ const CardWrapper = styled(Wrapper)`
         transform: rotate(45deg);
         -moz-transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
+        z-index: 50;
     }
 
     &:hover > span{
@@ -183,7 +176,7 @@ const Navigation = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: 600;
+    gap: .5rem;
 
     @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mbl}) and (max-width: ${({ theme }) => theme.breakpoints.tbt}){
         & > a{
@@ -196,3 +189,13 @@ const Navigation = styled.nav`
     }
 `;
 
+const StyledLink = styled(Link)`
+    cursor: pointer;
+    color: ${({theme}) => theme.colors.secLilac};
+    font-size: .9rem;
+    font-weight: 600;
+
+    &:hover{
+        color: ${({theme}) => theme.colors.priLilac};
+    }
+`;

@@ -71,6 +71,23 @@ const StyledButton = styled.button`
 
 const StyledAddButton = styled(StyledButton)`
     margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .75rem .75rem;
+    background: transparent;
+    border: none;
+    color: ${({theme}) => theme.colors.secLilac};
+    box-shadow: none;
+    transition: border .2s ease-in-out;
+
+    &:hover{
+        border: 2px solid ${({theme}) => theme.colors.secLilac};
+    }
+
+    &:active{
+        border: none;
+    }
 `;
 
 const StyledDltButton = styled(StyledButton)`
