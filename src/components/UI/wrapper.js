@@ -35,8 +35,7 @@ export const Card = ({ children, onClick }) => {
 
     return (
         <CardWrapper onClick={onClick}>
-            {/* {forMobileScreens ? <span>Double click on the scribble to read it in full.</span> : null} */}
-            <span>{forMobileScreens ? 'Long press the scribble to read it in full' : 'Double click on the scribble to read it in full.' }</span>
+            {!forMobileScreens ? <span>Double click on the scribble to read it in full.</span> : null}      
             {children}
         </CardWrapper>
     )
