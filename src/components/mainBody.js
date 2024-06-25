@@ -95,7 +95,6 @@ const MainBody = () => {
 
 const StyledBody = styled.section`
     background-color: ${({ theme }) => theme.colors.priColor};
-    min-height: 90vh;
     width: 100%;
     padding: 1.5rem 3.5rem 1rem 3.5rem;
 

@@ -44,7 +44,7 @@ export const Card = ({ children, onClick }) => {
 const Wrapper = styled.div`
     background-color: ${({ theme }) => theme.colors.priColor};
     width: 100vw;
-    height: 10vh;
+    height: auto;
     padding: 1rem 3.5rem;
     display: flex;
     justify-content: space-between;
@@ -57,13 +57,13 @@ const Wrapper = styled.div`
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mbl}){
-        padding: .5rem;
+        padding: 1rem;
     }
 `;
 
 const ContainerWrapper = styled(Wrapper)`
     width: 50vw;
-    height: 85vh;
+    height: 100%;
     border: 1px solid ${({ theme }) => theme.colors.secLilac};
     border-radius: 10px;
     margin: 4rem auto;
@@ -175,7 +175,7 @@ const Navigation = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: .5rem;
+    gap: 1rem;
 
     @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mbl}) and (max-width: ${({ theme }) => theme.breakpoints.tbt}){
         & > a{
